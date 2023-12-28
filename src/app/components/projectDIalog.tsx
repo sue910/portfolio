@@ -9,7 +9,7 @@ type Props = {
     children: React.ReactNode,
 };
 
-export default function PortfolioDialog( {title, onClose, onOk, children} : Props) {
+export default function ProjectDialog( {title, onClose, onOk, children} : Props) {
     const searchParams = useSearchParams();
     const dialogRef = useRef<null | HTMLDialogElement>(null);
     const showDialog = searchParams.get('showDialog');
@@ -44,7 +44,7 @@ export default function PortfolioDialog( {title, onClose, onOk, children} : Prop
                 <div className="px-5 pb-6">
                     {children}
                     <div className="flex flex-row justify-end"></div>
-                    <button onClick={clickOk}>OK</button>
+                    <button className="bg-green-400 p-1 rounded" onClick={clickOk}>OK</button>
                 </div>
             </div>
         </dialog>

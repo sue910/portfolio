@@ -3,3 +3,9 @@
 @import "@unocss/reset/tailwind.css";
 
 @unocss all;
+
+
+body{
+    font-size: 16px;
+    font-family: 'Pretendard', san-serif;
+}
