@@ -1,9 +1,10 @@
-@import '@unocss/reset/tailwind.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import '/styles/font.css';
 @import '/styles/style.css';
-@unocss all;
 
 body {
   font-size: 16px;
-  font-family: 'Pretendard', san-serif;
+  /* font-family: 'Pretendard', san-serif; */
 }
