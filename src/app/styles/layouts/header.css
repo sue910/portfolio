@@ -1,0 +1,14 @@
+@screen sm {
+  header {
+    @apply bg-blue;
+  }
+}
+@screen md {
+  header {
+    @apply bg-red;
+  }
+}
+
+header {
+  @apply bg-blue;
+}

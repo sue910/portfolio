@@ -18,6 +18,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@unocss/postcss": "^0.58.1",
+    "@unocss/transformer-directives": "^0.58.2",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "eslint-config-prettier": "^9.1.0",

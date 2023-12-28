@@ -17,17 +17,23 @@ export default function Header() {
         <nav>
           <ul className="flex flex-row gap-6 items-center">
             <li>
-              <Link href="/" className="text-t3 fw-500">
+              <Link
+                href="/"
+                className="text-t3 fw-500 transition hover:text-black"
+              >
                 홈
               </Link>
             </li>
             <li>
-              <Link href="/projects" className="text-t3 fw-500">
+              <Link
+                href="/projects"
+                className="text-t3 fw-500 transition hover:text-black"
+              >
                 프로젝트
               </Link>
             </li>
             <li>
-              <button className="p-x-9 h-50px text-white bg-t1 fw-700 border-rd-0.375rem">
+              <button className="p-x-9 h-50px text-white bg-t1 fw-700 border-rd-0.375rem transition hover:bg-t2">
                 연락하기
               </button>
             </li>

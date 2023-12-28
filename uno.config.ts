@@ -1,7 +1,9 @@
 import { defineConfig, presetMini, presetAttributify } from 'unocss';
+import transformerDirectives from '@unocss/transformer-directives';
 
 export default defineConfig({
   presets: [presetAttributify(), presetMini()],
+  // transformers: [transformerDirectives()],
   theme: {
     colors: {
       primary: '#4D5DEB',
@@ -13,6 +15,12 @@ export default defineConfig({
       t4: '#81838D',
       t5: '#9EA5AC',
       defaultBorder: 'hsl(0 0 0, 0.08)',
+    },
+    breakpoints: {
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
     },
   },
 });
