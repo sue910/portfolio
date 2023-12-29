@@ -16,12 +16,21 @@ module.exports = {
       maxWidth: {
         wrap: '1000px',
       },
+      backgroundImage: ({ theme }) => ({
+        'gradient-primary': `linear-gradient(120deg, ${theme(
+          'colors.primary',
+        )} 50.5%, ${theme('colors.sub')})`,
+      }),
+      boxShadow: {
+        header: `0px 0px 12px 0px rgba(0, 0, 0, 0.05)`,
+      },
     },
     container: {
       padding: '10px',
     },
     colors: {
       primary: '#4D5DEB',
+      sub: '#9DA8E8',
       black: '#000000',
       white: '#FFFFFF',
       t1: '#1B1B1B',
@@ -29,7 +38,8 @@ module.exports = {
       t3: '#5D5D5F',
       t4: '#81838D',
       t5: '#9EA5AC',
-      defaultBorder: 'hsl(0 0 0, 0.08)',
+      'default-bg-color': '#f8f8f8',
+      'default-border': 'rgb(0 0 0, 0.08)',
     },
     fontFamily: {
       sans: ['Pretendard', 'sans-serif'],
