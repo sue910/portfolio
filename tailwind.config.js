@@ -43,6 +43,7 @@ module.exports = {
       t5: '#9EA5AC',
       'default-bg-color': '#f8f8f8',
       'default-border': 'rgb(0 0 0, 0.08)',
+      'footer-bg-color': '#393B42',
     },
     screens: {
       sm: { min: '576px', max: '767px' },

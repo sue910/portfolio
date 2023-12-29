@@ -48,7 +48,7 @@ export default function Header() {
               <Link
                 href="/"
                 className={clsx(
-                  'text-t3 fw-500 transition-all hover:text-black',
+                  'text-t3 font-medium transition-all hover:text-black',
                   isScroll && 'text-sm',
                 )}
               >
@@ -59,7 +59,7 @@ export default function Header() {
               <Link
                 href="/projects"
                 className={clsx(
-                  'text-t3 fw-500 transition-all hover:text-black',
+                  'text-t3 font-medium transition-all hover:text-black',
                   isScroll && 'text-sm',
                 )}
               >
@@ -69,8 +69,8 @@ export default function Header() {
             <li>
               <button
                 className={clsx(
-                  'px-9 h-[50px] text-white bg-t1 fw-700 rounded-md transition-all hover:bg-t2',
-                  isScroll && 'text-sm h-[40px]',
+                  'px-9 text-white bg-t1 font-bold rounded-md transition-all hover:bg-t2',
+                  isScroll ? 'text-sm h-[40px]' : 'h-[50px]',
                 )}
               >
                 연락하기
