@@ -1,8 +1,9 @@
+@import 'styles/font.css';
+@import 'styles/style.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import '/styles/font.css';
-@import '/styles/style.css';
 
 body {
   font-size: 16px;

@@ -9,12 +9,12 @@ export default function Header() {
   const headerRef = useRef(null);
   const [isScroll, setIsScroll] = useState(false);
 
-  const observer = new IntersectionObserver(
-    ([e]) => setIsScroll(e.intersectionRatio < 1), //header가 stuck(top -1px)이 아닐때
-    { threshold: [1] },
-  );
-
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([e]) => setIsScroll(e.intersectionRatio < 1), //header가 stuck(top -1px)이 아닐때
+      { threshold: [1] },
+    );
+
     if (!isUpdated.current) {
       isUpdated.current = true;
     } else {

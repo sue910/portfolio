@@ -25,6 +25,9 @@ module.exports = {
         header: `0px 0px 12px 0px rgba(0, 0, 0, 0.05)`,
       },
     },
+    fontFamily: {
+      sans: ['Pretendard', 'sans-serif'],
+    },
     container: {
       padding: '10px',
     },
@@ -41,14 +44,10 @@ module.exports = {
       'default-bg-color': '#f8f8f8',
       'default-border': 'rgb(0 0 0, 0.08)',
     },
-    fontFamily: {
-      sans: ['Pretendard', 'sans-serif'],
-    },
     screens: {
-      sm: '576px',
-      md: '768px',
-      lg: '992px',
-      xl: '1200px',
+      sm: { min: '576px', max: '767px' },
+      md: { min: '768px', max: '1023px' },
+      lg: { min: '1024px' },
     },
   },
   plugins: [],
