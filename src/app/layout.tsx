@@ -14,10 +14,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-100vh">
-      <body className="h-100vh bg-default-bg-color">
+    <html lang="en" className="min-h-screen">
+      <body className="min-h-screen bg-default-bg-color">
         <Header />
-        <main>{children}</main>
+        <main className="flex flex-col items-center">{children}</main>
         <Footer />
       </body>
     </html>

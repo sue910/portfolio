@@ -24,12 +24,38 @@ module.exports = {
       boxShadow: {
         header: `0px 0px 12px 0px rgba(0, 0, 0, 0.05)`,
       },
+      zIndex: {
+        header: 9999,
+        modal: 99,
+      },
+      animation: {
+        vertical: 'up-down 2.4s ease-in-out infinite',
+        'vertical-slow': 'up-down 4s ease-in-out infinite',
+        'to-up': 'appear-to-up .75s ease-in-out forwards',
+      },
+      keyframes: {
+        'up-down': {
+          '0%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(25%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        'appear-to-up': {
+          '0%': { transform: 'translateY(-70%)', opacity: 0 },
+          '100%': { transform: 'translateY(-50%)', opacity: 1 },
+        },
+      },
     },
     fontFamily: {
       sans: ['Pretendard', 'sans-serif'],
     },
     container: {
-      padding: '10px',
+      width: '100%',
+      padding: {
+        DEFAULT: '0.625rem',
+        sm: '0.625rem',
+        md: '1rem',
+        lg: '2.25rem',
+      },
     },
     colors: {
       primary: '#4D5DEB',
@@ -46,9 +72,21 @@ module.exports = {
       'footer-bg-color': '#393B42',
     },
     screens: {
-      sm: { min: '576px', max: '767px' },
-      md: { min: '768px', max: '1023px' },
-      lg: { min: '1024px' },
+      sm: { max: '767px' },
+      md: { min: '768px', max: '1071px' },
+      lg: { min: '1072px' },
+    },
+    borderRadius: {
+      DEFAULT: '16px',
+      sm: '0.375rem',
+      md: '0.75rem',
+      lg: '1rem',
+      full: '9999px',
+    },
+  },
+  variants: {
+    extend: {
+      animation: ['group-hover'],
     },
   },
   plugins: [],

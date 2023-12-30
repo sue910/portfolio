@@ -1,1 +1,5 @@
 @import './layouts/header';
+
+.black-btn {
+  @apply text-white bg-t1 font-bold rounded-md transition-all hover:bg-t2;
+}

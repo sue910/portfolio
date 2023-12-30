@@ -27,11 +27,11 @@ export default function Header() {
     <header
       ref={headerRef}
       className={clsx(
-        'sticky transition-all bg-transparent top-[-1px] flex justify-center h-[100px] px-[10px]',
+        'sticky transition-all bg-transparent -top-px flex justify-center h-[100px] z-header',
         isScroll && 'h-[70px] bg-white shadow-header',
       )}
     >
-      <div className=" max-w-wrap flex justify-between items-center w-screen bg-transparent m-x-auto">
+      <div className="container w-full flex justify-between items-center bg-transparent m-x-auto">
         <Link href="/">
           <Image
             className="transition-all"
@@ -69,7 +69,7 @@ export default function Header() {
             <li>
               <button
                 className={clsx(
-                  'px-9 text-white bg-t1 font-bold rounded-md transition-all hover:bg-t2',
+                  'black-btn px-[36px] rounded-sm',
                   isScroll ? 'text-sm h-[40px]' : 'h-[50px]',
                 )}
               >
