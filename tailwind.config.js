@@ -20,29 +20,41 @@ module.exports = {
         'gradient-primary': `linear-gradient(120deg, ${theme(
           'colors.primary',
         )} 50.5%, ${theme('colors.sub')})`,
+        dots: "url('/images/main/dot.svg')",
       }),
       boxShadow: {
-        header: `0px 0px 12px 0px rgba(0, 0, 0, 0.05)`,
+        header: '0px 0px 12px 0px rgba(0, 0, 0, 0.05)',
+        card: ' 0px 6px 20px 0px rgba(0, 0, 0, 0.05), 0px 0px 2px 0px rgba(0, 0, 0, 0.05)',
       },
       zIndex: {
         header: 9999,
         modal: 99,
       },
       animation: {
-        vertical: 'up-down 2.4s ease-in-out infinite',
-        'vertical-slow': 'up-down 4s ease-in-out infinite',
-        'to-up': 'appear-to-up .75s ease-in-out forwards',
+        move: 'up-down 2.4s ease-in-out infinite',
+        'move-slow': 'up-down 4s ease-in-out .4s infinite',
+        'to-up-1': 'appear-to-up .6s ease-in-out .25s forwards',
+        'to-up-2': 'appear-to-up .6s ease-in-out .85s forwards',
+        grow: 'increase .75s ease-in-out 1.45s forwards',
+        'to-up-3': 'appear-to-up .6s ease-in-out 2.2s forwards',
       },
       keyframes: {
         'up-down': {
           '0%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(25%)' },
+          '50%': { transform: 'translateY(30%)' },
           '100%': { transform: 'translateY(0)' },
         },
         'appear-to-up': {
-          '0%': { transform: 'translateY(-70%)', opacity: 0 },
-          '100%': { transform: 'translateY(-50%)', opacity: 1 },
+          '0%': { transform: 'translateY(60px)' },
+          '100%': { transform: 'translateY(0)' },
         },
+        increase: {
+          '0%': { transform: 'scaleX(0)' },
+          '100%': { transform: 'scaleX(1)' },
+        },
+      },
+      fontSize: {
+        'header-sm': '15px',
       },
     },
     fontFamily: {
@@ -68,7 +80,8 @@ module.exports = {
       t4: '#81838D',
       t5: '#9EA5AC',
       'default-bg-color': '#f8f8f8',
-      'default-border': 'rgb(0 0 0, 0.08)',
+      'light-gray': '#F3F4F5',
+      'default-border': 'rgba(0, 0, 0, 0.08)',
       'footer-bg-color': '#393B42',
     },
     screens: {

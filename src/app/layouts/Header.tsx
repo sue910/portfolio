@@ -27,14 +27,14 @@ export default function Header() {
     <header
       ref={headerRef}
       className={clsx(
-        'sticky transition-all bg-transparent -top-px flex justify-center h-[100px] z-header',
+        'sticky header-transition bg-transparent -top-px flex justify-center h-[100px] z-header',
         isScroll && 'h-[70px] bg-white shadow-header',
       )}
     >
       <div className="container w-full flex justify-between items-center bg-transparent m-x-auto">
         <Link href="/">
           <Image
-            className="transition-all"
+            className="header-transition"
             src="/images/logos/suyeon-kim.svg"
             alt="Suyeon Kim Portfolio Home"
             width={isScroll ? 112 : 156}
@@ -48,7 +48,7 @@ export default function Header() {
               <Link
                 href="/"
                 className={clsx(
-                  'text-t3 font-medium transition-all hover:text-black',
+                  'text-t3 font-medium header-transition hover:text-black',
                   isScroll && 'text-sm',
                 )}
               >
@@ -59,7 +59,7 @@ export default function Header() {
               <Link
                 href="/projects"
                 className={clsx(
-                  'text-t3 font-medium transition-all hover:text-black',
+                  'text-t3 font-medium header-transition hover:text-black',
                   isScroll && 'text-sm',
                 )}
               >
@@ -69,7 +69,7 @@ export default function Header() {
             <li>
               <button
                 className={clsx(
-                  'black-btn px-[36px] rounded-sm',
+                  'black-btn px-[36px] rounded-sm header-transition',
                   isScroll ? 'text-sm h-[40px]' : 'h-[50px]',
                 )}
               >
