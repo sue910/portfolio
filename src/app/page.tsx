@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Icon from './components/Icon';
+import Card from './components/Card';
+import { getData, PortfolioItemType } from './utils/getData';
 
 type SkillName = {
   [key: string]: string;
 };
+
 const SKILL_NAMES: SkillName = {
   ai: 'Illustrator',
   draw: 'Drawing',
@@ -25,7 +28,9 @@ const SKILL_NAMES: SkillName = {
   zeplin: 'Zeplin',
 };
 
-export default function Home() {
+export default async function Home() {
+  const list = await getData(true);
+
   const skillItem = (key: string, isFlex?: boolean) => {
     return (
       <li
@@ -98,11 +103,11 @@ export default function Home() {
             quality={100}
           />
           <Image
-            className="absolute animate-move left-1/2 -bottom-6 -translate-x-1/2"
+            className="absolute animate-move left-1/2 -bottom-6 -translate-x-1/2 h-auto"
             src="/images/main/spring.png"
             alt="spring"
             width={93.6}
-            height={88}
+            height={0}
             priority={true}
             quality={100}
           />
@@ -112,40 +117,37 @@ export default function Home() {
             <span className="text-primary font-semibold text-header-sm leading-4">
               Projects
             </span>
-            <div className=" font-bold text-4xl leading-10 mt-3">
+            <div className="font-bold text-4xl leading-10 mt-3">
               작업한 프로젝트들
             </div>
           </h2>
           <div className="w-full flex flex-row gap-5">
-            <div className="flex-1 rounded-lg shadow-card overflow-hidden">
-              <div className="w-full pt-[66.6%] bg-primary"></div>
-              <div className="p-5">
-                <h3 className="text-lg leading-5 font-bold">COCO REVIEW</h3>
-                <p className="leading-5 mt-1">카페24 통합 리뷰 관리 서비스</p>
-              </div>
-            </div>
-            <div className="flex-1 rounded-lg shadow-card overflow-hidden">
-              <div className="w-full pt-[66.6%] bg-primary"></div>
-              <div className="p-5">
-                <h3 className="text-lg leading-5 font-bold">Gig Talk</h3>
-                <p className="leading-5 mt-1">긱잡 정보 공유 커뮤니티 앱</p>
-              </div>
-            </div>
-            <div className="flex-1 rounded-lg shadow-card overflow-hidden">
-              <div className="w-full pt-[66.6%] bg-primary"></div>
-              <div className="p-5">
-                <h3 className="text-lg leading-5 font-bold">MILINK</h3>
-                <p className="leading-5 mt-1">SNS 멀티 링크 공유 솔루션</p>
-              </div>
-            </div>
+            {list.map((item: PortfolioItemType) => {
+              const portfolio = item.properties;
+              return (
+                <Card
+                  key={
+                    portfolio.ID.unique_id.prefix +
+                    portfolio.ID.unique_id.number
+                  }
+                  id={item.id}
+                  title={portfolio.projectName.title[0].plain_text || ''}
+                  desc={portfolio.description.rich_text[0].plain_text || ''}
+                />
+              );
+            })}
           </div>
-          <button className="border-btn h-[70px] w-[240px] text-lg transition-all mt-[60px]">
+          <Link
+            className="border-btn h-[70px] w-[240px] text-lg transition-all mt-[60px]"
+            href={`/projects`}
+          >
             프로젝트 더보기
-          </button>
+          </Link>
         </section>
         <section className="pt-[200px] pb-[160px] w-full flex flex-row items-center justify-center">
           <div className="relative mr-[120px]">
             <Image
+              className="h-auto"
               src="/images/main/holding-paper-plane.png"
               alt="holding-paper-plane"
               width={372}

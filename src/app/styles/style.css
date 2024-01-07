@@ -1,9 +1,9 @@
 @import './layouts/header';
 
 .black-btn {
-  @apply text-white bg-t1 font-bold rounded-md hover:bg-t2;
+  @apply flex flex-row items-center justify-center text-white bg-t1 font-bold rounded-md hover:bg-t2;
 }
 
 .border-btn {
-  @apply border border-t5 font-bold rounded-md hover:border-primary hover:text-primary;
+  @apply flex flex-row items-center justify-center border border-t5 font-bold rounded-md hover:border-primary hover:text-primary;
 }

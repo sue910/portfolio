@@ -20,11 +20,13 @@ module.exports = {
         'gradient-primary': `linear-gradient(120deg, ${theme(
           'colors.primary',
         )} 50.5%, ${theme('colors.sub')})`,
+        'gradient-white-tp':
+          'linear-gradient(to left, #FFF, rgba(255, 255, 255, 0) 100%)',
         dots: "url('/images/main/dot.svg')",
       }),
       boxShadow: {
         header: '0px 0px 12px 0px rgba(0, 0, 0, 0.05)',
-        card: ' 0px 6px 20px 0px rgba(0, 0, 0, 0.05), 0px 0px 2px 0px rgba(0, 0, 0, 0.05)',
+        card: ' 0px 6px 24px 0px rgba(0, 0, 0, 0.05), 0px 4px 10px -2px rgba(0, 0, 0, 0.05), 0px 0px 2px 0px rgba(0, 0, 0, 0.05)',
       },
       zIndex: {
         header: 9999,
@@ -54,7 +56,7 @@ module.exports = {
         },
       },
       fontSize: {
-        'header-sm': '15px',
+        'sm-2': '15px',
       },
     },
     fontFamily: {
@@ -83,6 +85,7 @@ module.exports = {
       'light-gray': '#F3F4F5',
       'default-border': 'rgba(0, 0, 0, 0.08)',
       'footer-bg-color': '#393B42',
+      tag: 'rgba(77, 93, 235, 0.12)',
     },
     screens: {
       sm: { max: '767px' },

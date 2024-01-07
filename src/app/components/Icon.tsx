@@ -9,14 +9,13 @@ type Props = {
 };
 
 export default function Icon({ name, size, className, dir, ext }: Props) {
-  console.log(`/images/${dir || 'icons'}/${name}.${ext || 'svg'}`);
   return (
     <Image
       src={`/images/${dir || 'icons'}/${name}.${ext || 'svg'}`}
       width={size || 24}
       height={size || 24}
       alt={name}
-      className={`inline ${className || ''}`}
+      className={`inline h-auto ${className || ''}`}
     />
   );
 }
