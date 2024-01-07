@@ -1,3 +1,4 @@
+import { Tag } from '../components/TagList';
 import { DATABASE_ID, TOKEN } from '../config/notion';
 const { Client } = require('@notionhq/client');
 
@@ -26,7 +27,18 @@ export async function getData(isMain: boolean = false) {
   return list;
 }
 
+type strObj = { [key: string]: string };
+
 export type PortfolioItemType = {
   id: string;
-  properties: { [key: string]: any };
+  properties: {
+    type: { multi_select: strObj[] };
+    client: { rich_text: strObj[] };
+    timeline: { date: strObj };
+    isMaintain: { checkbox: boolean };
+    tags: { multi_select: Tag[] };
+    ID: { id: string };
+    works: { id: string; rich_text: strObj[] };
+    [key: string]: any;
+  };
 };

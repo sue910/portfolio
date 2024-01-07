@@ -31,7 +31,7 @@ export default function Card({
           <h3 className="text-lg leading-5 font-bold">{title || '-'}</h3>
           <p className="leading-5 mt-1 text-sm-2">{desc || '-'}</p>
         </div>
-        {tags && <TagList tags={tags} uniqueId={uniqueId} />}
+        {tags && <TagList tags={tags} uniqueId={uniqueId} className="mt-5" />}
       </div>
     </Link>
   );

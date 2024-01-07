@@ -126,10 +126,7 @@ export default async function Home() {
               const portfolio = item.properties;
               return (
                 <Card
-                  key={
-                    portfolio.ID.unique_id.prefix +
-                    portfolio.ID.unique_id.number
-                  }
+                  key={portfolio.ID.id}
                   id={item.id}
                   title={portfolio.projectName.title[0].plain_text || ''}
                   desc={portfolio.description.rich_text[0].plain_text || ''}

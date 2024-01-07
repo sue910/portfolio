@@ -1,4 +1,27 @@
 @import './layouts/header';
+@import './components/projectDialog';
+
+body {
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+  }
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
+  touch-action: none;
+}
 
 .black-btn {
   @apply flex flex-row items-center justify-center text-white bg-t1 font-bold rounded-md hover:bg-t2;

@@ -26,7 +26,9 @@ module.exports = {
       }),
       boxShadow: {
         header: '0px 0px 12px 0px rgba(0, 0, 0, 0.05)',
-        card: ' 0px 6px 24px 0px rgba(0, 0, 0, 0.05), 0px 4px 10px -2px rgba(0, 0, 0, 0.05), 0px 0px 2px 0px rgba(0, 0, 0, 0.05)',
+        card: '0px 6px 24px 0px rgba(0, 0, 0, 0.05), 0px 4px 10px -2px rgba(0, 0, 0, 0.05), 0px 0px 2px 0px rgba(0, 0, 0, 0.05)',
+        close:
+          '0px 4px 10px -2px rgba(0, 0, 0, 0.05), 0px 0px 2px 0px rgba(0, 0, 0, 0.05)',
       },
       zIndex: {
         header: 9999,
@@ -84,6 +86,7 @@ module.exports = {
       'default-bg-color': '#f8f8f8',
       'light-gray': '#F3F4F5',
       'default-border': 'rgba(0, 0, 0, 0.08)',
+      backdrop: 'rgba(0, 0, 0, 0.3)',
       'footer-bg-color': '#393B42',
       tag: 'rgba(77, 93, 235, 0.12)',
     },

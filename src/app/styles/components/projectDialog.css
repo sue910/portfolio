@@ -1,0 +1,43 @@
+.dialog {
+  @apply fixed p-0 block w-[900px] h-[90%] left-1/2 -translate-x-1/2 z-modal rounded
+   transition-all opacity-0 invisible open:visible open:opacity-100 overscroll-contain
+   backdrop:transition-all backdrop:bg-backdrop backdrop:backdrop-blur-sm backdrop:overscroll-contain;
+
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+  }
+}
+
+.item-type + .item-type {
+  &:before {
+    content: '/';
+    display: inline;
+  }
+}
+
+.maintain {
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    border-radius: 100%;
+    margin: 0 4px;
+    vertical-align: middle;
+  }
+}
+
+.divider {
+  @apply w-full h-px bg-default-border my-6;
+}

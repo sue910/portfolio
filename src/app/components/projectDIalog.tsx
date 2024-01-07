@@ -1,36 +1,27 @@
 'use client';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { PortfolioItemType } from '../utils/getData';
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  JSXElementConstructor,
-} from 'react';
+import React, { useRef, useEffect } from 'react';
+import Icon from './Icon';
+import TagList from './TagList';
 
 type Props = {
-  list: PortfolioItemType[];
+  item: PortfolioItemType | undefined | null;
   onClose?: () => void;
   onOk?: () => void;
-  children?: React.ReactNode;
 };
 
-export default function ProjectDialog({ list, onClose, onOk }: Props) {
+export default function ProjectDialog({ item, onClose, onOk }: Props) {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const dialogRef = useRef<null | HTMLDialogElement>(null);
-  const projectId = searchParams.get('projectId') || undefined;
-  const [item, setItem] = useState<PortfolioItemType | undefined | null>(null);
 
   useEffect(() => {
-    if (projectId) {
+    if (item) {
       dialogRef.current?.showModal();
-      const showItem = list.find((item) => item.id === projectId);
-      setItem(showItem);
     } else {
       dialogRef.current?.close();
     }
-  }, [projectId]);
+  }, [item]);
 
   const closeDialog = () => {
     dialogRef.current?.close();
@@ -43,28 +34,151 @@ export default function ProjectDialog({ list, onClose, onOk }: Props) {
     closeDialog();
   };
 
-  console.log(item);
+  const onBackdropClick = (event: React.MouseEvent<HTMLElement>): void => {
+    const rect = dialogRef.current?.getBoundingClientRect();
+    if (
+      rect &&
+      (event.clientY < rect.top ||
+        event.clientY > rect.bottom ||
+        event.clientX < rect.left ||
+        event.clientX > rect.right)
+    ) {
+      closeDialog();
+    }
+  };
+
+  const returnShortDate = (date: string) => {
+    if (date) {
+      const arr = date.split('-');
+      const year = arr[0].slice(2);
+      return year + '.' + arr[1];
+    }
+  };
+
+  const returnDuration = (start: string, end: string) => {
+    if (start && end) {
+      const startMonth = start.split('-')[1];
+      const endMonth = end.split('-')[1];
+      const yearGap = Number(end.split('-')[0]) - Number(start.split('-')[0]);
+      let result;
+      if (yearGap > 0) {
+        result = Number(endMonth) + yearGap * 12 - Number(startMonth);
+      } else {
+        result = Number(endMonth) - Number(startMonth);
+      }
+      return ` (약 ${result || 1}개월)`;
+    }
+  };
+
   const dialog: JSX.Element | null = item ? (
-    <dialog
-      ref={dialogRef}
-      className="fixed w-[900px] top-[100px] left-1/2 -translate-x-1/2 z-modal rounded backdrop:bg-gray-800/50 backdrop-blur-md"
-    >
-      <div className="w-[500px] max-w-fullbg-gray-200 flex flex-col">
-        <div className="flex flex-row justify-between mb-4 pt-2 px-5 bg-yellow-400">
-          <h2 className="text-2xl">Title</h2>
+    <dialog ref={dialogRef} className="dialog" onClick={onBackdropClick}>
+      <div className="w-full flex flex-col">
+        <div className=" bg-t5 h-[180px]">
           <button
             onClick={closeDialog}
-            className="mb-2 py-1 px-2 cursor-pointer rounded border-none w-8 h-8 font-bold bg-red-600 text-white"
+            className="fixed top-4 right-4 bg-white w-[50px] h-[50px] rounded-full shadow-close overflow-hidden"
           >
-            X
+            <div className="flex items-center justify-center w-full h-full transition-opacity hover:opacity-60">
+              <Icon name="close" />
+            </div>
           </button>
         </div>
-        <div className="px-5 pb-6">
-          <p>{item.id || ''}</p>
-          <div className="flex flex-row justify-end"></div>
-          <button className="bg-green-400 p-1 rounded" onClick={clickOk}>
-            OK
-          </button>
+        <div className="px-[100px] py-[60px]">
+          <h3 className="font-bold text-[40px] leading-10">
+            {item.properties.projectName.title[0].plain_text || ''}
+          </h3>
+          <p className="mt-1.5 font-semibold text-lg leading-6">
+            {item.properties.description.rich_text[0].plain_text || ''}
+          </p>
+          <ul className="mt-6 leading-4">
+            <li className="flex flex-row mb-2">
+              <div className="text-sm font-bold text-t4 w-[80px] mr-1">
+                유형
+              </div>
+              <div>
+                {item.properties.type.multi_select
+                  ? item.properties.type.multi_select.map((itemType) => (
+                      <span
+                        key={itemType.id}
+                        className="item-type font-medium text-t4 text-sm"
+                      >
+                        {itemType.name || '-'}
+                      </span>
+                    ))
+                  : '-'}
+              </div>
+            </li>
+            {item.properties.client.rich_text[0]?.plain_text ? (
+              <li className="flex flex-row mb-2">
+                <div className="text-sm font-bold text-t4 w-[80px] mr-1">
+                  클라이언트
+                </div>
+                <div className="font-medium text-t4 text-sm">
+                  {item.properties.client.rich_text[0].plain_text}
+                </div>
+              </li>
+            ) : null}
+
+            <li className="flex flex-row">
+              <div className="text-sm font-bold text-t4 w-[80px] mr-1">
+                타임라인
+              </div>
+              <div className="font-medium text-t4 text-sm">
+                {returnShortDate(item.properties.timeline.date.start)}-
+                {returnShortDate(item.properties.timeline.date.end)}
+                {returnDuration(
+                  item.properties.timeline.date.start,
+                  item.properties.timeline.date.end,
+                )}
+                {item.properties.isMaintain.checkbox && (
+                  <span className="maintain font-medium text-t4 text-sm before:bg-t4">
+                    유지보수중
+                  </span>
+                )}
+              </div>
+            </li>
+          </ul>
+          <div className="divider" />
+          <h4 className="text-lg leading-6 font-bold text-t4">태그</h4>
+          {item.properties.tags.multi_select && (
+            <TagList
+              tags={item.properties.tags.multi_select}
+              uniqueId={item.properties.ID.id}
+              className="mt-4"
+            />
+          )}
+          <div className="divider" />
+          {item.properties.works.rich_text[0]?.plain_text ? (
+            <>
+              <h4 className="text-lg leading-6 font-bold text-t4">수행 업무</h4>
+              <ul className="pt-1">
+                {item.properties.works.rich_text[0]?.plain_text
+                  .split('\n')
+                  .map((str, index) => (
+                    <li
+                      key={item.properties.works.id + index}
+                      className="leading-6 mt-3"
+                    >
+                      {str}
+                    </li>
+                  ))}
+              </ul>
+              <div className="divider" />
+            </>
+          ) : null}
+
+          <div className="flex flex-row justify-between">
+            <h4 className="text-lg leading-6 font-bold text-t4">스크린샷</h4>
+            <div className="flex flex-row gap-6">
+              <button className="transition-opacity hover:opacity-60">
+                <Icon name="prev" />
+              </button>
+              <button className="transition-opacity hover:opacity-60">
+                <Icon name="next" />
+              </button>
+            </div>
+          </div>
+          <div className="h-[400px] bg-t5 mt-6"></div>
         </div>
       </div>
     </dialog>

@@ -6,11 +6,16 @@ export type Tag = {
 type Props = {
   tags: Tag[] | undefined;
   uniqueId: string | undefined;
+  className?: string;
 };
 
-export default function TagList({ tags, uniqueId }: Props) {
+export default function TagList({ tags, uniqueId, className }: Props) {
   return (
-    <div className="relative flex w-full mt-5 whitespace-nowrap overflow-hidden">
+    <div
+      className={`relative flex w-full whitespace-nowrap overflow-hidden ${
+        className || ''
+      }`}
+    >
       {tags &&
         tags.map((tag, index) => (
           <span

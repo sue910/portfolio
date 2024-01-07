@@ -1,18 +1,16 @@
 import Link from 'next/link';
-import PortfolioDialog from '../components/projectDIalog';
+import ProjectDialog from '../components/ProjectDialog';
 import { getData, PortfolioItemType } from '../utils/getData';
 import Card from '../components/Card';
 
-export default async function ProjectList() {
-  const list = await getData();
+type Props = {
+  searchParams: Record<string, string> | null | undefined;
+};
 
-  async function onClose() {
-    'use server';
-  }
-
-  async function onOk() {
-    'use server';
-  }
+export default async function ProjectList({ searchParams }: Props) {
+  const list: PortfolioItemType[] = await getData();
+  const projectId = searchParams?.projectId;
+  const selectedItem = list.find((item) => item.id === projectId);
 
   return (
     <article className="w-full flex flex-col items-center">
@@ -31,19 +29,17 @@ export default async function ProjectList() {
             const portfolio = item.properties;
             return (
               <Card
-                key={
-                  portfolio.ID.unique_id.prefix + portfolio.ID.unique_id.number
-                }
+                key={portfolio.ID.id}
                 id={item.id}
                 title={portfolio.projectName.title[0].plain_text || ''}
                 desc={portfolio.description.rich_text[0].plain_text || ''}
                 tags={portfolio.tags.multi_select}
-                uniqueId={portfolio.ID.unique_id.number}
+                uniqueId={portfolio.ID.id}
               />
             );
           })}
         </div>
-        <PortfolioDialog list={list} />
+        <ProjectDialog item={selectedItem} />
       </div>
     </article>
   );
