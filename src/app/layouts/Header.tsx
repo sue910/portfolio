@@ -29,8 +29,8 @@ export default function Header() {
     <header
       ref={headerRef}
       className={clsx(
-        'sticky header-transition bg-transparent -top-px flex justify-center h-[100px] z-header sm:h-[60px] ',
-        isScroll && 'h-[70px] sm:h-[50px] bg-white shadow-header',
+        'sticky header-transition bg-transparent -top-px flex justify-center h-[80px] z-header sm:h-[60px] bg-temp-header backdrop-blur-sm',
+        // isScroll && 'h-[70px] sm:h-[50px] bg-white shadow-header',
       )}
     >
       <div className="container w-full flex justify-between items-center bg-transparent m-x-auto">

@@ -91,6 +91,7 @@ module.exports = {
       backdrop: 'rgba(0, 0, 0, 0.3)',
       'footer-bg-color': '#393B42',
       tag: 'rgba(77, 93, 235, 0.12)',
+      'temp-header': 'rgba(255, 255, 255, 0.3)',
     },
     screens: {
       sm: { max: '767px' },
