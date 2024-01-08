@@ -1,5 +1,5 @@
 @import './layouts/header';
-@import './components/projectDialog';
+@import './components/dialog';
 
 :root {
   --swiper-pagination-bullet-size: 6px;

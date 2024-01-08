@@ -1,4 +1,4 @@
-import ProjectDialog from '../components/ProjectDialog';
+import Dialog from '../components/Dialog';
 import Card from '../components/Card';
 import { getData, PortfolioItemType } from '../utils/getData';
 
@@ -42,7 +42,7 @@ export default async function ProjectList({ searchParams }: Props) {
             );
           })}
         </div>
-        <ProjectDialog item={selectedItem} />
+        <Dialog item={selectedItem} />
       </div>
     </article>
   );
