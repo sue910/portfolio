@@ -1,6 +1,12 @@
 @import './layouts/header';
 @import './components/projectDialog';
 
+:root {
+  --swiper-pagination-bullet-size: 6px;
+  --swiper-pagination-bullet-horizontal-gap: 3px;
+  --swiper-pagination-bullet-inactive-opacity: 0.15;
+  --swiper-preloader-color: #4d5deb;
+}
 body {
   overflow-x: auto;
   &::-webkit-scrollbar {

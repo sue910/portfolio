@@ -4,6 +4,8 @@ import { PortfolioItemType } from '../utils/getData';
 import React, { useRef, useEffect } from 'react';
 import Icon from './Icon';
 import TagList from './TagList';
+import Link from 'next/link';
+import ProjectSwiper from './Swiper';
 
 type Props = {
   item: PortfolioItemType | undefined | null;
@@ -47,7 +49,7 @@ export default function ProjectDialog({ item, onClose, onOk }: Props) {
     }
   };
 
-  const returnShortDate = (date: string) => {
+  const returnShortDate = (date: string): string | undefined => {
     if (date) {
       const arr = date.split('-');
       const year = arr[0].slice(2);
@@ -55,7 +57,7 @@ export default function ProjectDialog({ item, onClose, onOk }: Props) {
     }
   };
 
-  const returnDuration = (start: string, end: string) => {
+  const returnDuration = (start: string, end: string): string | undefined => {
     if (start && end) {
       const startMonth = start.split('-')[1];
       const endMonth = end.split('-')[1];
@@ -72,18 +74,16 @@ export default function ProjectDialog({ item, onClose, onOk }: Props) {
 
   const dialog: JSX.Element | null = item ? (
     <dialog ref={dialogRef} className="dialog" onClick={onBackdropClick}>
-      <div className="w-full flex flex-col">
-        <div className=" bg-t5 h-[180px]">
-          <button
-            onClick={closeDialog}
-            className="fixed top-4 right-4 bg-white w-[50px] h-[50px] rounded-full shadow-close overflow-hidden"
-          >
-            <div className="flex items-center justify-center w-full h-full transition-opacity hover:opacity-60">
-              <Icon name="close" />
-            </div>
-          </button>
-        </div>
-        <div className="px-[100px] py-[60px]">
+      <div className="static dialog-contents w-full flex flex-col">
+        <button
+          onClick={closeDialog}
+          className="fixed top-4 right-4 bg-white w-[50px] h-[50px] rounded-full overflow-hidden transition-all hover:bg-default-border"
+        >
+          <div className="flex items-center justify-center w-full h-full">
+            <Icon name="close" />
+          </div>
+        </button>
+        <div className="px-[100px] pt-[80px] pb-[60px]">
           <h3 className="font-bold text-[40px] leading-10">
             {item.properties.projectName.title[0].plain_text || ''}
           </h3>
@@ -169,16 +169,52 @@ export default function ProjectDialog({ item, onClose, onOk }: Props) {
 
           <div className="flex flex-row justify-between">
             <h4 className="text-lg leading-6 font-bold text-t4">스크린샷</h4>
-            <div className="flex flex-row gap-6">
-              <button className="transition-opacity hover:opacity-60">
-                <Icon name="prev" />
-              </button>
-              <button className="transition-opacity hover:opacity-60">
-                <Icon name="next" />
-              </button>
-            </div>
           </div>
-          <div className="h-[400px] bg-t5 mt-6"></div>
+          <ProjectSwiper
+            projectName={item.properties.projectName.title[0].plain_text || ''}
+            uniqueId={
+              item.properties.ID.unique_id.prefix +
+              '-' +
+              item.properties.ID.unique_id.number
+            }
+          />
+
+          {item.properties.url_1.url ? (
+            <>
+              <div className="divider" />
+              <h4 className="text-lg leading-6 font-bold text-t4 mb-4">
+                관련 사이트
+              </h4>
+              <Link
+                target="_blank"
+                href={item.properties.url_1.url}
+                className="flex flex-col justify-center border border-t5 h-[60px] rounded-sm px-3.5 transition-colors hover:border-primary hover:text-primary"
+              >
+                <h5 className="font-medium leading-6">
+                  {item.properties.url_1_caption.rich_text[0]?.plain_text ||
+                    '-'}
+                </h5>
+                <p className="text-[13px] text-t4">
+                  {item.properties.url_1.url || '-'}
+                </p>
+              </Link>
+              {item.properties.url_2.url ? (
+                <Link
+                  target="_blank"
+                  href={item.properties.url_2.url}
+                  className="mt-2 flex flex-col justify-center border border-t5 h-[60px] rounded-sm px-3.5 transition-colors hover:border-primary hover:text-primary"
+                >
+                  <h5 className="font-medium leading-6">
+                    {item.properties.url_2_caption.rich_text[0]?.plain_text ||
+                      '-'}
+                  </h5>
+                  <p className="text-[13px] text-t4">
+                    {item.properties.url_2.url || '-'}
+                  </p>
+                </Link>
+              ) : null}
+            </>
+          ) : null}
         </div>
       </div>
     </dialog>

@@ -37,8 +37,12 @@ export type PortfolioItemType = {
     timeline: { date: strObj };
     isMaintain: { checkbox: boolean };
     tags: { multi_select: Tag[] };
-    ID: { id: string };
+    ID: { id: string; unique_id: { [key: string]: string | number } };
     works: { id: string; rich_text: strObj[] };
+    url_1: { url: string | null };
+    url_2: { url: string | null };
+    url_1_caption: { rich_text: strObj[] };
+    url_2_caption: { rich_text: strObj[] };
     [key: string]: any;
   };
 };

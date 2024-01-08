@@ -41,3 +41,37 @@
 .divider {
   @apply w-full h-px bg-default-border my-6;
 }
+
+.swiper-container {
+  touch-action: pan-y;
+}
+
+.por-swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  height: 400px !important;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  pointer-events: auto;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-pagination {
+  position: static !important;
+  padding-top: 6px;
+}
+
+.swiper-pagination-bullet-active {
+  background: #81838d !important;
+}
+
+.swiper-button-disabled {
+  display: none !important;
+}

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Icon from './components/Icon';
 import Card from './components/Card';
 import { getData, PortfolioItemType } from './utils/getData';
+import { kakaoUrl } from './constant';
 
 type SkillName = {
   [key: string]: string;
@@ -58,7 +59,7 @@ export default async function Home() {
             quality={100}
           />
           <div className="relative z-10 h-full flex flex-col justify-between ">
-            <h2 className="text-white font-bold text-5xl leading-tight">
+            <h2 className="text-white font-bold text-5xl leading-tight md:text-4xl">
               <p className="overflow-hidden h-[60px]">
                 <span className="inline-block animate-to-up-1 translate-y-[60px]">
                   웹 디자이너,
@@ -79,10 +80,14 @@ export default async function Home() {
               </p>
             </h2>
 
-            <button className="black-btn h-[70px] w-[240px] text-lg transition-all">
+            <Link
+              href={kakaoUrl}
+              target="_blank"
+              className="black-btn h-[70px] w-[240px] text-lg transition-all"
+            >
               연락하기
               <Icon name="papar-plane" className="ml-2" />
-            </button>
+            </Link>
           </div>
           <Image
             className="absolute bottom-[70px] right-[324px]"
@@ -128,6 +133,11 @@ export default async function Home() {
                 <Card
                   key={portfolio.ID.id}
                   id={item.id}
+                  uniqueId={
+                    portfolio.ID.unique_id.prefix +
+                    '-' +
+                    portfolio.ID.unique_id.number
+                  }
                   title={portfolio.projectName.title[0].plain_text || ''}
                   desc={portfolio.description.rich_text[0].plain_text || ''}
                 />

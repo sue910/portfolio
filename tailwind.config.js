@@ -22,6 +22,8 @@ module.exports = {
         )} 50.5%, ${theme('colors.sub')})`,
         'gradient-white-tp':
           'linear-gradient(to left, #FFF, rgba(255, 255, 255, 0) 100%)',
+        'gradient-thumb':
+          'linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, rgba(0, 0, 0, 0.08) 100%)',
         dots: "url('/images/main/dot.svg')",
       }),
       boxShadow: {
@@ -37,10 +39,10 @@ module.exports = {
       animation: {
         move: 'up-down 2.4s ease-in-out infinite',
         'move-slow': 'up-down 4s ease-in-out .4s infinite',
-        'to-up-1': 'appear-to-up .6s ease-in-out .25s forwards',
-        'to-up-2': 'appear-to-up .6s ease-in-out .85s forwards',
+        'to-up-1': 'appear-to-up .4s ease-in-out .25s forwards',
+        'to-up-2': 'appear-to-up .4s ease-in-out .85s forwards',
         grow: 'increase .75s ease-in-out 1.45s forwards',
-        'to-up-3': 'appear-to-up .6s ease-in-out 2.2s forwards',
+        'to-up-3': 'appear-to-up .4s ease-in-out 2.2s forwards',
       },
       keyframes: {
         'up-down': {
@@ -83,8 +85,8 @@ module.exports = {
       t3: '#5D5D5F',
       t4: '#81838D',
       t5: '#9EA5AC',
-      'default-bg-color': '#f8f8f8',
-      'light-gray': '#F3F4F5',
+      'default-bg-color': '#f7f8f8',
+      'light-gray': '#F1F2F4',
       'default-border': 'rgba(0, 0, 0, 0.08)',
       backdrop: 'rgba(0, 0, 0, 0.3)',
       'footer-bg-color': '#393B42',

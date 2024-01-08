@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { clsx } from 'clsx';
+import { kakaoUrl } from '../constant';
+import Icon from '../components/Icon';
 
 export default function Header() {
   const isUpdated = useRef(false);
@@ -27,14 +29,14 @@ export default function Header() {
     <header
       ref={headerRef}
       className={clsx(
-        'sticky header-transition bg-transparent -top-px flex justify-center h-[100px] z-header',
-        isScroll && 'h-[70px] bg-white shadow-header',
+        'sticky header-transition bg-transparent -top-px flex justify-center h-[100px] z-header sm:h-[60px]',
+        isScroll && 'h-[70px] sm:h-[50px] bg-white shadow-header',
       )}
     >
       <div className="container w-full flex justify-between items-center bg-transparent m-x-auto">
         <Link href="/">
           <Image
-            className="header-transition"
+            className="header-transition sm:w-[100px]"
             src="/images/logos/suyeon-kim.svg"
             alt="Suyeon Kim Portfolio Home"
             width={isScroll ? 112 : 156}
@@ -43,12 +45,12 @@ export default function Header() {
           />
         </Link>
         <nav>
-          <ul className="flex flex-row gap-6 items-center">
+          <ul className="flex flex-row gap-6 items-center sm:gap-4">
             <li>
               <Link
                 href="/"
                 className={clsx(
-                  'text-t3 font-medium header-transition hover:text-black',
+                  'text-t3 font-medium header-transition hover:text-black sm:text-sm',
                   isScroll && 'text-sm',
                 )}
               >
@@ -59,7 +61,7 @@ export default function Header() {
               <Link
                 href="/projects"
                 className={clsx(
-                  'text-t3 font-medium header-transition hover:text-black',
+                  'text-t3 font-medium header-transition hover:text-black sm:text-sm',
                   isScroll && 'text-sm',
                 )}
               >
@@ -67,17 +69,22 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <button
+              <Link
+                href={kakaoUrl}
+                target="_blank"
                 className={clsx(
-                  'black-btn px-[36px] rounded-sm header-transition',
+                  'black-btn px-[36px] rounded-sm header-transition sm:text-sm sm:h-[40px] sm:w-[40px] sm:rounded-full sm:px-0',
                   isScroll ? 'text-sm h-[40px]' : 'h-[50px]',
                 )}
               >
-                연락하기
-              </button>
+                <span className="sm:hidden">연락하기</span>
+                <Icon
+                  name="papar-plane"
+                  className="hidden sm:block sm:relative sm:top-px"
+                />
+              </Link>
             </li>
           </ul>
-          {/* <Link href={"/projects?showDialog=y"}>프로젝트</Link> */}
         </nav>
       </div>
     </header>

@@ -24,7 +24,7 @@ export default async function ProjectList({ searchParams }: Props) {
           </span>
         </h2>
 
-        <div className="w-full grid gap-x-5 gap-y-10 grid-cols-3">
+        <div className="w-full grid gap-x-5 gap-y-[60px] grid-cols-3">
           {list.map((item: PortfolioItemType) => {
             const portfolio = item.properties;
             return (
@@ -34,7 +34,11 @@ export default async function ProjectList({ searchParams }: Props) {
                 title={portfolio.projectName.title[0].plain_text || ''}
                 desc={portfolio.description.rich_text[0].plain_text || ''}
                 tags={portfolio.tags.multi_select}
-                uniqueId={portfolio.ID.id}
+                uniqueId={
+                  portfolio.ID.unique_id.prefix +
+                  '-' +
+                  portfolio.ID.unique_id.number
+                }
               />
             );
           })}
