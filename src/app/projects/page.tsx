@@ -16,7 +16,7 @@ export default async function ProjectList({ searchParams }: Props) {
       <div className="container flex flex-col text-t1 pt-[60px] pb-[180px] md:pt-[40px] md:pb-[120px] sm:pt-[24px] sm:pb-[80px]">
         <h2 className="flex flex-row items-center mb-[60px] md:mb-[40px] sm:mb-[40px]">
           <div className="font-bold text-4xl leading-10 mr-[20px] md:text-3xl md:leading-8 sm:text-2xl sm:leading-7">
-            작업한 프로젝트들
+            프로젝트
           </div>
           <span className="text-t5 font-semibold text-sm-2 leading-4 md:text-sm sm:text-xs">
             2023 - 2020
