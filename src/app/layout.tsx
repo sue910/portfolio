@@ -6,10 +6,10 @@ import Footer from './layouts/Footer';
 export const metadata: Metadata = {
   title: 'Suyeon Kim Portfolio',
   description: '웹 디자이너, 프론트엔드 개발자 김수연 포트폴리오',
-  // metadataBase: new URL('https://acme.com'),
-  // openGraph: {
-  //   images: '/images/thumbnail.png',
-  // },
+  metadataBase: new URL('https://ksy-portfolio.vercel.app/'),
+  openGraph: {
+    images: '/images/thumbnail.jpg',
+  },
 };
 
 export default function RootLayout({

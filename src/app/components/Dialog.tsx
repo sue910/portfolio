@@ -77,7 +77,7 @@ export default function Dialog({ item, onClose, onOk }: Props) {
       <div className="static dialog-contents w-full flex flex-col">
         <button
           onClick={closeDialog}
-          className="fixed top-4 right-4 bg-white w-[50px] h-[50px] rounded-full overflow-hidden transition-all hover:bg-default-border sm:right-3 sm:top-3"
+          className="fixed top-4 right-4 bg-transparent w-[50px] h-[50px] rounded-full overflow-hidden transition-all hover:bg-default-border sm:right-3 sm:top-3"
         >
           <div className="flex items-center justify-center w-full h-full">
             <Icon name="close" />

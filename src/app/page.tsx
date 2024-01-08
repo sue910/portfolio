@@ -55,7 +55,8 @@ export default async function Home() {
               src="/images/main/blured-sphere.png"
               alt="blured-sphere"
               fill
-              priority={true}
+              sizes="100vw"
+              loading="lazy"
               quality={100}
             />
           </div>
@@ -65,7 +66,7 @@ export default async function Home() {
             alt="sphere"
             width={40}
             height={40}
-            priority={true}
+            loading="lazy"
             quality={100}
           />
           <div
@@ -78,7 +79,7 @@ export default async function Home() {
               alt="computer"
               fill
               sizes="100vw"
-              priority={true}
+              loading="lazy"
               quality={100}
             />
           </div>
@@ -119,7 +120,7 @@ export default async function Home() {
             alt="spring"
             width={93.6}
             height={0}
-            priority={true}
+            loading="lazy"
             quality={100}
           />
         </section>
@@ -166,7 +167,7 @@ export default async function Home() {
                 alt="holding-paper-plane"
                 fill
                 sizes="100vw"
-                priority={true}
+                loading="lazy"
                 quality={100}
               />
             </div>
