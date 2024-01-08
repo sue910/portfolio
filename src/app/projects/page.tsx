@@ -14,17 +14,17 @@ export default async function ProjectList({ searchParams }: Props) {
 
   return (
     <article className="w-full flex flex-col items-center">
-      <div className="container flex flex-col text-t1 pt-[60px] pb-[180px]">
-        <h2 className="flex flex-row items-center mb-[60px]">
-          <div className="font-bold text-4xl leading-10 mr-[20px]">
+      <div className="container flex flex-col text-t1 pt-[60px] pb-[180px] md:pt-[40px] md:pb-[120px] sm:pt-[24px] sm:pb-[80px]">
+        <h2 className="flex flex-row items-center mb-[60px] md:mb-[40px] sm:mb-[40px]">
+          <div className="font-bold text-4xl leading-10 mr-[20px] md:text-3xl md:leading-8 sm:text-2xl sm:leading-7">
             작업한 프로젝트들
           </div>
-          <span className="text-t5 font-semibold text-sm-2 leading-4">
+          <span className="text-t5 font-semibold text-sm-2 leading-4 md:text-sm sm:text-xs">
             2023 - 2020
           </span>
         </h2>
 
-        <div className="w-full grid gap-x-5 gap-y-[60px] grid-cols-3">
+        <div className="w-full grid gap-x-5 gap-y-[60px] grid-cols-3 md:gap-x-4 md:gap-y-[40px] sm:gap-x-4 sm:gap-y-[36px] sm:flex sm:flex-col">
           {list.map((item: PortfolioItemType) => {
             const portfolio = item.properties;
             return (

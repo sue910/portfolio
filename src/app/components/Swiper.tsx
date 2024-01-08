@@ -49,18 +49,23 @@ export default function ProjectSwiper({ projectName, uniqueId }: Props) {
           enabled: true,
           clickable: true,
         }}
+        breakpoints={{
+          1072: {
+            autoHeight: true,
+          },
+        }}
         preventClicks={false}
         touchStartPreventDefault={false}
         allowTouchMove={true}
         modules={[Navigation, Pagination]}
-        className="por-swiper pb-10"
+        className="por-swiper pb-10 sm:pb-3"
       >
         {imgUrlList.map((imgUrl, index) => (
           <SwiperSlide key={uniqueId + '_' + index}>
             <div className="relative w-full h-full flex items-center justify-center">
               <img
                 onClick={() => openImageWindow(index)}
-                className="w-auto h-full border border-default-border rounded-sm cursor-pointer"
+                className="w-auto h-full border border-default-border rounded-sm cursor-pointer md:h-auto md:w-auto md:max-h-[400px] sm:h-auto sm:w-auto sm:max-h-[360px]"
                 src={imgUrl}
                 loading="lazy"
                 alt={projectName + index}

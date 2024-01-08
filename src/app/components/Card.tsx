@@ -41,12 +41,18 @@ export default function Card({
           alt={uniqueId}
         />
       </div>
-      <div className="p-5 bg-white flex-1 flex flex-col">
+      <div className="p-5 bg-white flex-1 flex flex-col md:p-4 sm:p-3 sm:px-4">
         <div className="flex-1">
-          <h3 className="text-lg leading-5 font-bold">{title || '-'}</h3>
-          <p className="leading-5 mt-1 text-sm">{desc || '-'}</p>
+          <h3 className="text-lg leading-5 font-bold md:text-base sm:text-sm">
+            {title || '-'}
+          </h3>
+          <p className="leading-5 mt-1 text-sm md:text-xs sm:text-xs md:leading-4 sm:leading-4 md:mt-0 sm:mt-0">
+            {desc || '-'}
+          </p>
         </div>
-        {tags && <TagList tags={tags} uniqueId={uniqueId} className="mt-5" />}
+        {tags && (
+          <TagList tags={tags} uniqueId={uniqueId} className="mt-5 sm:mt-4" />
+        )}
       </div>
     </Link>
   );

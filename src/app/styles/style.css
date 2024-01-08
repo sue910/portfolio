@@ -7,23 +7,10 @@
   --swiper-pagination-bullet-inactive-opacity: 0.15;
   --swiper-preloader-color: #4d5deb;
 }
-body {
-  overflow-x: auto;
-  &::-webkit-scrollbar {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 6px;
-    height: 6px;
-    border-radius: 6px;
-    background: transparent;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.15);
-    border-radius: 6px;
-  }
-}
 
+body {
+  overflow-x: hidden;
+}
 body:has(dialog[open]) {
   overflow: hidden;
   touch-action: none;

@@ -45,12 +45,12 @@ export default function Header() {
           />
         </Link>
         <nav>
-          <ul className="flex flex-row gap-6 items-center sm:gap-4">
+          <ul className="flex flex-row gap-6 items-center md:gap-5 sm:gap-4">
             <li>
               <Link
                 href="/"
                 className={clsx(
-                  'text-t3 font-medium header-transition hover:text-black sm:text-sm',
+                  'text-t3 font-medium header-transition hover:text-black md:text-sm sm:text-sm',
                   isScroll && 'text-sm',
                 )}
               >
@@ -61,7 +61,7 @@ export default function Header() {
               <Link
                 href="/projects"
                 className={clsx(
-                  'text-t3 font-medium header-transition hover:text-black sm:text-sm',
+                  'text-t3 font-medium header-transition hover:text-black md:text-sm  sm:text-sm',
                   isScroll && 'text-sm',
                 )}
               >
@@ -73,7 +73,7 @@ export default function Header() {
                 href={kakaoUrl}
                 target="_blank"
                 className={clsx(
-                  'black-btn px-[36px] rounded-sm header-transition sm:text-sm sm:h-[40px] sm:w-[40px] sm:rounded-full sm:px-0',
+                  'black-btn px-[36px] rounded-sm header-transition md:h-[40px] md:text-sm sm:text-sm sm:h-[40px] sm:w-[40px] sm:rounded-full sm:px-0',
                   isScroll ? 'text-sm h-[40px]' : 'h-[50px]',
                 )}
               >
