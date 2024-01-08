@@ -29,7 +29,7 @@ export default function Header() {
     <header
       ref={headerRef}
       className={clsx(
-        'sticky header-transition bg-transparent -top-px flex justify-center h-[80px] z-header sm:h-[60px] bg-temp-header backdrop-blur-sm',
+        'sticky header-transition bg-transparent -top-px flex justify-center h-[100px] z-header sm:h-[60px] backdrop-blur-sm',
         // isScroll && 'h-[70px] sm:h-[50px] bg-white shadow-header',
       )}
     >
