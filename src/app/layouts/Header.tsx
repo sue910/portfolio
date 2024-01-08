@@ -28,14 +28,10 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className={
-        'sticky header-transition bg-transparent -top-px flex justify-center h-[100px] z-header sm:h-[60px]' +
-        (isScroll && 'h-[70px] sm:h-[50px] bg-white shadow-header')
-      }
-      // className={clsx(
-      //   'sticky header-transition bg-transparent -top-px flex justify-center h-[100px] z-header sm:h-[60px]',
-      //   isScroll && 'h-[70px] sm:h-[50px] bg-white shadow-header',
-      // )}
+      className={clsx(
+        'sticky header-transition bg-transparent -top-px flex justify-center h-[100px] z-header sm:h-[60px] ',
+        isScroll && 'h-[70px] sm:h-[50px] bg-white shadow-header',
+      )}
     >
       <div className="container w-full flex justify-between items-center bg-transparent m-x-auto">
         <Link href="/">
