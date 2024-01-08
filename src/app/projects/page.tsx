@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import ProjectDialog from '../components/ProjectDialog';
-import { getData, PortfolioItemType } from '../utils/getData';
 import Card from '../components/Card';
+import { getData, PortfolioItemType } from '../utils/getData';
 
 type Props = {
   searchParams: Record<string, string> | null | undefined;
