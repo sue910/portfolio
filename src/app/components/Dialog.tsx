@@ -10,7 +10,6 @@ import ProjectSwiper from './Swiper';
 type Props = {
   item: PortfolioItemType | undefined | null;
   onClose?: () => void;
-  onOk?: () => void;
 };
 
 export default function Dialog({ item, onClose, onOk }: Props) {
@@ -29,11 +28,6 @@ export default function Dialog({ item, onClose, onOk }: Props) {
     dialogRef.current?.close();
     router.push('/projects', { scroll: false });
     if (onClose) onClose();
-  };
-
-  const clickOk = () => {
-    if (onOk) onOk();
-    closeDialog();
   };
 
   const onBackdropClick = (event: React.MouseEvent<HTMLElement>): void => {
