@@ -27,7 +27,7 @@ export default function Dialog({ item, onClose, onOk }: Props) {
 
   const closeDialog = () => {
     dialogRef.current?.close();
-    router.push('/projects');
+    router.push('/projects', { scroll: false });
     if (onClose) onClose();
   };
 

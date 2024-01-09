@@ -138,6 +138,7 @@ export default async function Home() {
               const portfolio = item.properties;
               return (
                 <Card
+                  isScroll={true}
                   key={portfolio.ID.id}
                   id={item.id}
                   uniqueId={

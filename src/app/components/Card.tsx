@@ -9,6 +9,7 @@ type Props = {
   id?: string;
   tags?: Tag[] | undefined;
   className?: string | undefined;
+  isScroll?: boolean | undefined;
 };
 
 export default function Card({
@@ -18,12 +19,14 @@ export default function Card({
   className,
   uniqueId,
   id,
+  isScroll,
 }: Props) {
   const imgUrl = `/images/portfolios/${uniqueId}/01.jpg`;
 
   return (
     <Link
       href={`/projects?projectId=${id}`}
+      scroll={isScroll || false}
       className={`group flex-1 flex flex-col rounded-lg shadow-card overflow-hidden cursor-pointer ${
         className || ''
       }`}
