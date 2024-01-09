@@ -1,9 +1,39 @@
-header {
-  @screen md {
-  }
-  @screen sm {
-  }
-}
 .header-transition {
-  @apply transition-all duration-300 delay-100;
+  @apply transition-all duration-200;
+}
+
+.sticky-header {
+  .container {
+    @apply fixed max-w-[1048px] top-[10px] left-1/2 py-3 px-6 animate-to-down bg-white rounded shadow-card;
+    @screen md {
+      @apply max-w-[768px] px-4;
+    }
+    @screen sm {
+      @apply max-w-[768px] px-2.5;
+      width: calc(100% - 20px);
+    }
+  }
+  .logo {
+    @apply w-[132px];
+    @screen md {
+      @apply w-[120px];
+    }
+    @screen sm {
+      @apply w-[100px];
+    }
+  }
+  nav {
+    a {
+      @apply text-sm-2;
+      @screen md {
+        @apply text-sm;
+      }
+      @screen sm {
+        @apply text-sm;
+      }
+    }
+    .black-btn {
+      @apply h-[40px];
+    }
+  }
 }

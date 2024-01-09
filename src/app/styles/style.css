@@ -15,7 +15,6 @@ body:has(dialog[open]) {
   overflow: hidden;
   touch-action: none;
 }
-
 .black-btn {
   @apply flex flex-row items-center justify-center text-white bg-t1 font-bold rounded-md hover:bg-t2;
 }

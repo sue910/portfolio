@@ -43,8 +43,13 @@ module.exports = {
         'to-up-2': 'appear-to-up .4s ease-in-out .85s forwards',
         grow: 'increase .75s ease-in-out 1.45s forwards',
         'to-up-3': 'appear-to-up .4s ease-in-out 2.2s forwards',
+        'to-down': 'appear-to-down .4s ease-in-out forwards',
       },
       keyframes: {
+        'appear-to-down': {
+          '0%': { transform: 'translate(-50%, -60px)', opacity: 0 },
+          '100%': { transform: 'translate(-50%, 0)', opacity: 1 },
+        },
         'up-down': {
           '0%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(30%)' },
