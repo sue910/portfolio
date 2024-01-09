@@ -8,6 +8,7 @@ import { portfolioImageLength } from '../constant';
 // import required modules
 import { Navigation, Pagination } from 'swiper/modules';
 import Icon from './Icon';
+import Image from 'next/image';
 
 type Props = {
   projectName: string;
@@ -63,11 +64,16 @@ export default function ProjectSwiper({ projectName, uniqueId }: Props) {
         {imgUrlList.map((imgUrl, index) => (
           <SwiperSlide key={uniqueId + '_' + index}>
             <div className="relative w-full h-full flex items-center justify-center">
-              <img
+              <Image
                 onClick={() => openImageWindow(index)}
-                className="w-auto h-full border border-default-border rounded-sm cursor-pointer md:h-auto md:w-auto md:max-h-[400px] sm:h-auto sm:w-auto sm:max-h-[360px]"
+                sizes="100vw"
+                width={0}
+                height={0}
+                priority={index === 0}
+                className="w-auto h-full border-default-border rounded-sm cursor-zoom-in md:h-auto md:w-auto md:max-h-[400px] sm:h-auto sm:w-auto sm:max-h-[360px]"
                 src={imgUrl}
-                loading="lazy"
+                loading={index === 0 ? 'eager' : 'lazy'}
+                onLoad={(e) => (e.target as Element).classList.add('border')}
                 alt={projectName + index}
               />
               <div className="swiper-lazy-preloader" />

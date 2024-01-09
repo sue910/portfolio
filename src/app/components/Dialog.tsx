@@ -144,6 +144,7 @@ export default function Dialog({ item, onClose, onOk }: Props) {
           </h4>
           {item.properties.tags.multi_select && (
             <TagList
+              isShowAll={true}
               tags={item.properties.tags.multi_select}
               uniqueId={item.properties.ID.id}
               className="mt-4"
