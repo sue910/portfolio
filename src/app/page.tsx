@@ -133,7 +133,7 @@ export default async function Home() {
               작업한 프로젝트들
             </div>
           </h2>
-          <div className="w-full flex flex-row gap-5 md:gap-4 sm:gap-4 sm:flex-col">
+          <div className="w-full flex flex-row gap-5 md:gap-4 sm:gap-y-[36px] sm:flex-col">
             {list.map((item: PortfolioItemType) => {
               const portfolio = item.properties;
               return (
