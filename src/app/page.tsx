@@ -56,7 +56,7 @@ export default async function Home() {
               alt="blured-sphere"
               fill
               sizes="100vw"
-              loading="lazy"
+              priority
               quality={100}
             />
           </div>
@@ -66,7 +66,7 @@ export default async function Home() {
             alt="sphere"
             width={40}
             height={40}
-            loading="lazy"
+            priority
             quality={100}
           />
           <div
@@ -79,7 +79,7 @@ export default async function Home() {
               alt="computer"
               fill
               sizes="100vw"
-              loading="lazy"
+              priority
               quality={100}
             />
           </div>
@@ -120,7 +120,7 @@ export default async function Home() {
             alt="spring"
             width={93.6}
             height={0}
-            loading="lazy"
+            priority
             quality={100}
           />
         </section>
@@ -229,7 +229,7 @@ export default async function Home() {
 
       <section className="w-full flex flex-col items-center pt-[120px] pb-[180px] bg-light-gray md:pt-[80px] md:pb-[120px] sm:pt-[60px] sm:pb-[80px]">
         <div className="container">
-          <h2 className="mb-6 md:mb-4">
+          <h2 className="mb-6 md:mb-4 sm:text-center">
             <span className="text-primary font-semibold text-header-sm leading-4 md:text-sm sm:text-xs">
               Skills &amp; Tools
             </span>
@@ -237,7 +237,7 @@ export default async function Home() {
               기술과 도구
             </div>
           </h2>
-          <div className="flex flex-row flex-wrap pt-[60px] md:pt-[40px] sm:pt-[24px] sm:flex-col">
+          <div className="flex flex-row flex-wrap pt-[60px] md:pt-[40px] sm:pt-[24px] sm:flex-col sm:px-3">
             <div className="flex-1">
               <h3 className="font-bold text-t5 pb-6 md:text-sm sm:text-xs">
                 프론트엔드

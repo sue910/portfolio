@@ -18,7 +18,7 @@ export default async function ProjectList({ searchParams }: Props) {
           <div className="font-bold text-4xl leading-10 mr-[20px] md:text-3xl md:leading-8 sm:text-2xl sm:leading-7">
             프로젝트
           </div>
-          <span className="text-t5 font-semibold text-sm-2 leading-4 md:text-sm sm:text-xs">
+          <span className="text-t5 font-semibold text-sm-2 leading-4 md:text-sm sm:text-sm">
             2023 - 2020
           </span>
         </h2>

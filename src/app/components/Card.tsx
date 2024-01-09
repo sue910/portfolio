@@ -44,12 +44,12 @@ export default function Card({
           alt={uniqueId}
         />
       </div>
-      <div className="p-5 bg-white flex-1 flex flex-col md:p-4 sm:p-3 sm:px-4">
+      <div className="p-5 bg-white flex-1 flex flex-col md:p-4 sm:p-4 sm:pt-3">
         <div className="flex-1">
-          <h3 className="text-lg leading-5 font-bold md:text-base sm:text-sm-2">
+          <h3 className="text-lg leading-5 font-bold md:text-base sm:text-base">
             {title || '-'}
           </h3>
-          <p className="leading-5 mt-1 text-sm md:text-xs sm:text-[13px] md:leading-4 sm:leading-4 md:mt-0 sm:mt-0">
+          <p className="leading-5 mt-1 text-sm md:leading-4 sm:leading-4 md:mt-0.5 sm:mt-0.5">
             {desc || '-'}
           </p>
         </div>

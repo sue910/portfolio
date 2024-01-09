@@ -15,6 +15,7 @@ export default function Icon({ name, size, className, dir, ext }: Props) {
       width={size || 24}
       height={size || 24}
       alt={name}
+      priority
       className={`inline h-auto ${className || ''}`}
     />
   );
