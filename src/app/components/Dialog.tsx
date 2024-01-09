@@ -12,7 +12,7 @@ type Props = {
   onClose?: () => void;
 };
 
-export default function Dialog({ item, onClose, onOk }: Props) {
+export default function Dialog({ item, onClose }: Props) {
   const router = useRouter();
   const dialogRef = useRef<null | HTMLDialogElement>(null);
 
